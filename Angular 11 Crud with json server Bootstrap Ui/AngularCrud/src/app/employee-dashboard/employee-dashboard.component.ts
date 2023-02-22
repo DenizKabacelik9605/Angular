@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import { EmployeeModel } from './employee-dashboard.model';
 import {ApiService} from '../shared/api.service';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-employee-dashboard',
   templateUrl: './employee-dashboard.component.html',
@@ -11,7 +12,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
   formValue!:FormGroup;
   employeeModelObj:EmployeeModel=new EmployeeModel();
-
+  employeeData !:any;
   constructor(private formBuilder:FormBuilder,private api:ApiService) { }
 
   ngOnInit(): void {
@@ -25,6 +26,8 @@ export class EmployeeDashboardComponent implements OnInit {
 
 
     })
+
+    this.getAllEmployee();
   }
     postEmployeeDetails(){
       console.log("method run");
@@ -37,12 +40,45 @@ export class EmployeeDashboardComponent implements OnInit {
       this.api.postEmployee(this.employeeModelObj).subscribe(res=>
 
         {console.log(res);
-        alert("Employee Added Successfully")
+        alert("Employee Added Successfully");
+        let  ref=document.getElementById('cancel')
+        ref?.click()
+        this.formValue.reset();
+        this.getAllEmployee();
         },
 
         err=>{
           alert("Something went wrong")
         }
         )
+    }
+
+    getAllEmployee(){
+       this.api.getEmployee()
+       .subscribe(res=>{
+        this.employeeData=res;
+
+       })
+
+    }
+    deleteEmployee(row:any){
+      console.log("Method Çalıştı")
+      console.log("row id ",  row.id)
+      this.api.deleteEmployee(row.id)
+      .subscribe(res=>{
+        alert("Employee Deleted")
+      })
+
+    }
+
+    onEdit(row:any){
+
+
+      this.formValue.controls['firstName'].setValue(row.firstName);
+      this.formValue.controls['lastName'].setValue(row.lastName);
+      this.formValue.controls['email'].setValue(row.email);
+      this.formValue.controls['mobile'].setValue(row.mobile);
+      this.formValue.controls['salary'].setValue(row.salary);
+
     }
 }

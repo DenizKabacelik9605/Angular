@@ -1,10 +1,10 @@
-
 <nav class="navbar navbar-light bg-primary">
 
   <div class="container-fluid">
     <h1 style="color:aliceblue;">Angular Crud</h1>
     <div class="d-flex">
-      <button  type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add Employee</button>
+      <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-success">Add
+        Employee</button>
     </div>
   </div>
 </nav>
@@ -25,22 +25,21 @@
 
     </tr>
   </thead>
-    <tbody>
-   <tr>
+  <tbody>
+    <tr *ngFor="let row of employeeData">
+      <td>{{row.id}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.lastName}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.mobile}}</td>
+      <td>{{row.salary}}</td>
+      <td>
+        <button  (click)="onEdit(row)" sytle="color:aliceblue" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"  class="btn btn-info">Edit</button>
+        <button  (click)="deleteEmployee(row)" class="btn btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
 
-    <td>1</td>
-    <td>Deniz </td>
-    <td>Kabaçelik</td>
-    <td>dkabacelik@gmail.com</td>
-    <td>553-013-87-43</td>
-    <td>1$</td>
-    <td>
-      <button class="btn btn-info">Edit</button>
-      <button class="btn btn-danger mx-3">Delete</button>
-    </td>
-   </tr>
-
-    </tbody>
+  </tbody>
 
 </table>
 
@@ -57,30 +56,31 @@
         <form [formGroup]="formValue">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">First Name</label>
-            <input type="text" formControlName="firstName"   class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" formControlName="firstName" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
 
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Last Name</label>
-            <input type="text"  formControlName="lastName"  class="form-control" id="exampleInputPassword1">
+            <input type="text" formControlName="lastName" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Email ID</label>
-            <input type="text" formControlName="email"  class="form-control" id="exampleInputPassword1">
+            <input type="text" formControlName="email" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Mobile Number</label>
-            <input type="text" formControlName="mobile"  class="form-control" id="exampleInputPassword1">
+            <input type="text" formControlName="mobile" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Salary</label>
-            <input type="text" formControlName="salary"  class="form-control" id="exampleInputPassword1">
+            <input type="text" formControlName="salary" class="form-control" id="exampleInputPassword1">
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         <button type="button" (click)="postEmployeeDetails()" class="btn btn-primary">Add</button>
       </div>
     </div>

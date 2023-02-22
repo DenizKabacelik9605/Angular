@@ -1,0 +1,67 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 2,
+      "firstName": "deniz",
+      "lastName": "kabaçelik",
+      "email": "dkabacelik96@gmail.com",
+      "mobile": "4",
+      "salary": "4"
+    },
+    {
+      "id": 3,
+      "firstName": "Gökay",
+      "lastName": "Öztürk",
+      "email": "gokay@gmail.com",
+      "mobile": "40",
+      "salary": "40"
+    },
+    {
+      "id": 4,
+      "firstName": "s",
+      "lastName": "s",
+      "email": "s@gmail.com",
+      "mobile": "5",
+      "salary": "5"
+    },
+    {
+      "id": 6,
+      "firstName": "deniz",
+      "lastName": "kabaçelik",
+      "email": "d@gmail.com",
+      "mobile": "3",
+      "salary": "3"
+    },
+    {
+      "id": 7,
+      "firstName": "dsfdsf",
+      "lastName": "sdas",
+      "email": "sdsad",
+      "mobile": "1",
+      "salary": "1"
+    },
+    {
+      "id": 8,
+      "firstName": "q",
+      "lastName": "w",
+      "email": "ds",
+      "mobile": "5",
+      "salary": "5"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
