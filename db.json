@@ -57,7 +57,15 @@
       "salary": "13"
     }
   ],
-  "comments": [],
+  "signupUsers": [
+    {
+      "fullname": "Deniz Kabaçelik",
+      "email": "admin",
+      "password": "Adm1234",
+      "mobile": 5530138743,
+      "id": 1
+    }
+  ],
   "profile": {
     "name": "typicode"
   }
